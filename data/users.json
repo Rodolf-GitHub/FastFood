@@ -1,0 +1,23 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "direction": "123 Main St, City, Country",
+        "password": "password123"
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "direction": "456 Elm St, Town, Country",
+        "password": "securepass"
+      },
+      {
+        "id": 3,
+        "name": "Michael Johnson",
+        "direction": "789 Oak St, Village, Country",
+        "password": "mikepass"
+      }
+    ]
+  }
+  

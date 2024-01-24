@@ -1,0 +1,12 @@
+{
+  "name": "fastfood",
+  "version": "1.0.0",
+  "description": "a storage of fast food ",
+  "main": "index.js",
+  "repository": "https://github.com/Rodolf-GitHub/FastFood.git",
+  "author": "Rodolfo <rodolfogroero2@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
