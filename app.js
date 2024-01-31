@@ -1,13 +1,15 @@
 const express = require('express')
 const app = express()
-const port=3000
-
+const dotenv = require("dotenv");
+dotenv.config();
+const port = process.env.PORT;
+const cors = require("cors");
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 
 app.use('/', userRoutes);
 app.use('/', productRoutes);
-
+app.use(cors());
 
 const  sequelize  =require('./database/database')
 async function main() {
