@@ -5,8 +5,8 @@ const port=3000
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 
-app.use('/users', userRoutes);
-app.use('/products', productRoutes);
+app.use('/', userRoutes);
+app.use('/', productRoutes);
 
 app.get('/', (req, res) => {
   res.send('¡Hola, mundo!')
