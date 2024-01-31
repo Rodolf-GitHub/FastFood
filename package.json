@@ -7,6 +7,7 @@
   "author": "Rodolfo <rodolfogroero2@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "sqlite": "^5.1.1"
   }
 }
