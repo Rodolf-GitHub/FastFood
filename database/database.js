@@ -1,6 +1,7 @@
-import Sequelize from "sequelize";
+const Sequelize = require("sequelize")
 
-export const sequelize = new Sequelize("fastFoodDB", "mysql", "010103", {
+ const sequelize = new Sequelize("fastFoodDB", "postgres", "010103", {
   host: "localhost",
-  dialect: "mysql",
+  dialect: "postgres",
 });
+module.exports=sequelize;
