@@ -1,10 +1,12 @@
 // user.controller.js
-const { User } = require('../models/userModels');
-
+const  User  = require('../models/userModels');
+const sequelize = require('../database/database');
 class UserController {
   async getAllUsers(req, res) {
     try {
-      const users = await User.find();
+      console.log("get controller")
+      console.log(User)
+      const users = await User.findAll();
       res.status(200).json(users);
     } catch (error) {
       console.error('Error al obtener usuarios:', error);
@@ -25,19 +27,18 @@ class UserController {
       res.status(500).json({ message: 'Error al obtener usuario por ID' });
     }
   }
-
   async createUser(req, res) {
-    const userData = req.body;
+    const userData =await req.body;
+    console.log("userdata:",userData)
     try {
-      const newUser = new User(userData);
-      await newUser.save();
+      const newUser = await User.create(userData);
       res.status(201).json(newUser);
     } catch (error) {
       console.error('Error al crear usuario:', error);
       res.status(500).json({ message: 'Error al crear usuario' });
     }
   }
-
+  
   async updateUser(req, res) {
     const { id } = req.params;
     const userData = req.body;
