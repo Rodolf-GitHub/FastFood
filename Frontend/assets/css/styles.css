@@ -1,0 +1,58 @@
+/* custom-styles.css */
+
+:root {
+  --primary-100:#FFD700;
+  --primary-200:#ddb900;
+  --primary-300:#917800;
+  --accent-100:#C0C0C0;
+  --accent-200:#626262;
+  --text-100:#333333;
+  --text-200:#5c5c5c;
+  --bg-100:#F7F7F7;
+  --bg-200:#ededed;
+  --bg-300:#c4c4c4;
+    
+      
+  }
+  
+  /* Estilos para el contenedor del menú */
+  .nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-300); /* Cambia el color de fondo según tus preferencias */
+    padding: 1rem; /* Añade espaciado alrededor del menú */
+    border-radius: 50px;
+  }
+  
+  /* Estilos para los enlaces de navegación */
+  .nav-link {
+    margin: 0 1rem; /* Espaciado entre los enlaces */
+    text-decoration: none; /* Quita la decoración de subrayado */
+    color: var(--primary-300); /* Utiliza el color de texto personalizado */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s; /* Transición suave al pasar el cursor */
+  }
+  
+  /* Estilos para los enlaces activos */
+  .nav-link.active {
+    color: var(--text-200); /* Color azul para los enlaces activos */
+    background-color: var(--bg-100);
+    border-radius: 10px;
+  }
+  
+  /* Estilos al pasar el cursor sobre los enlaces */
+  .nav-link:hover {
+    background-color: var(--accent-100); /* Cambia el color de fondo al pasar el cursor */
+  }
+  /* styles.css o styles.scss */
+  body{
+    background-color: white;
+  }
+title{
+    color: var(--accent-200);
+}
+h1{
+    color: var(--text-100);
+}
+
+  
