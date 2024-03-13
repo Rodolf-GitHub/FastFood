@@ -4,7 +4,7 @@ const  Product  = require('../models/productModels');
 class ProductController {
   async getAllProducts(req, res) {
     try {
-      const products = await Product.find();
+      const products = await Product.findAll();
       res.status(200).json(products);
     } catch (error) {
       console.error('Error al obtener productos:', error);
