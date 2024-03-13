@@ -11,12 +11,13 @@ app.use('/', userRoutes);
 app.use('/', productRoutes);
 app.use(cors());
 
-const  sequelize  =require('./database/database')
+const  sequelize  =require('./database/database');
+const logger = require('./loggers/loggers');
 async function main() {
   try {
     await sequelize.sync({ force: false });
     app.listen(port, () => {
-      console.log('Server listening on port: '+port)
+      logger.info('Server listening on port: '+port)
     })
   } catch (error) {
     console.error("Error when starting connection", error);
