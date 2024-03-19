@@ -12,6 +12,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
 // Prueba la conexión
 async function testConnection() {
   try {
+    sequelize.sync({ alter: true })
     await sequelize.authenticate();
     logger.info('Conexión exitosa');
   } catch (error) {

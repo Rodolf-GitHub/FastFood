@@ -7,10 +7,14 @@ const Product = sequelize.define('Product', {
     allowNull: false
   },
   price: {
-    type: DataTypes.FLOAT,
+    type: DataTypes.STRING,
     allowNull: false
   },
   description: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  image: {
     type: DataTypes.STRING,
     allowNull: true
   }

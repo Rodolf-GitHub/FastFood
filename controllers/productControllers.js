@@ -27,14 +27,14 @@ class ProductController {
   }
 
   async createProduct(req, res) {
-    const productData = req.body;
+    const productData =await req.body;
     try {
       const newProduct = new Product(productData);
       await newProduct.save();
       res.status(201).json(newProduct);
     } catch (error) {
       console.error('Error al crear producto:', error);
-      res.status(500).json({ message: 'Error al crear producto' });
+      res.status(500).json({ message: 'Error al crear producto', error });
     }
   }
 

@@ -28,11 +28,12 @@
 }
 
 .description {
-  font-size: 2.2rem;
-  color: var(--accent-100); /* Use your custom text color */
-  margin-bottom: 2rem;
-  color:white;
-}
+    font-size: 2.2rem;
+    color: var(--accent-100); /* Use your custom text color */
+    margin-bottom: 2rem;
+    color:rgb(12, 4, 128);
+    background-color: rgba(247, 249, 250, 0.5);
+  }
 
 body {
   background-image: url("../assets/images/krustykrab.jpg");

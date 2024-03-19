@@ -9,10 +9,16 @@ const productRoutes = require('./routes/productRoutes');
 const  sequelize  =require('./database/database');
 const logger = require('./loggers/loggers');
 const errorHandler = require('./middleWares/errorHandler');
-
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 app.use('/', userRoutes);
+app.use(express.json());
 app.use('/', productRoutes);
-app.use(cors());
+
 
 // Usa el middleware de manejo de errores al final de la cadena de middleware
 app.use(errorHandler);

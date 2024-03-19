@@ -21,12 +21,14 @@
     background-repeat: no-repeat;
     background-position: center;
     height: 600px;
+    background-color: rgba(255, 228, 196, 0.2);
   }
   
   .title {
     font-size: 4.5rem;
     color: var(--primary-200);
     margin-bottom: 1rem;
+    background-color: rgba(255, 228, 196, 0.2);
   }
   
   .info {
@@ -34,6 +36,7 @@
     color: var(--accent-100);
     margin-bottom: 2rem;
     color: black;
+    background-color: rgba(255, 228, 196, 0.2);
   }
   
   .label {

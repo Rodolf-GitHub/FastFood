@@ -24,7 +24,9 @@ async function onSubmit (event: FormSubmitEvent<Schema>) {
 </script>
 
 <template>
+
     <Menu2></Menu2>
+    <body>
   <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
     <UFormGroup label="Email" name="email">
       <UInput v-model="state.email" />
@@ -38,5 +40,17 @@ async function onSubmit (event: FormSubmitEvent<Schema>) {
       Submit
     </UButton>
   </UForm>
+</body>
 </template>
+<style scoped>
+  body {
+    text-align: center;
+    padding: 2rem;
+    background-image: url("../assets/images/descargar.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 600px;
+    background-color: rgba(255, 228, 196, 0.2);
+  }</style>
 

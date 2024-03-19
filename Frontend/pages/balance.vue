@@ -26,7 +26,7 @@
     color: var(--primary-200);
     margin-bottom: 1rem;
     color: black;
-    background-color: white;
+    background-color:  rgba(255, 228, 196, 0.5);
   }
   
   .balance-info {
@@ -35,7 +35,8 @@
     margin-bottom: 2rem;
     font-size: 50px;
     color: black;
-    background-color: aliceblue;
+    background-color: rgba(255, 228, 196, 0.5);
+    
   }
   
   .balance-amount {

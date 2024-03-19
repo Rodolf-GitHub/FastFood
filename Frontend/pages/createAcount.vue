@@ -28,6 +28,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 </script>
 <template>
     <Menu2></Menu2>
+    <body>
     <div>
       <!-- Your existing components (Menu2, UForm, etc.) can go here -->
   
@@ -56,12 +57,23 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
   
       <!-- Add any other necessary fields here -->
   
-      <UButton type="submit">
+      <UButton type="submit" class="btn btn-primary btn-lg">
         Submit
       </UButton>
     </UForm>
     </div>
+  </body>
   </template>
   
- 
+  <style scoped>
+  body {
+    text-align: center;
+    padding: 2rem;
+    background-image: url("../assets/images/descargar.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 600px;
+    background-color: rgba(255, 228, 196, 0.2);
+  }</style>
   
