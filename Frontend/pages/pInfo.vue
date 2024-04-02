@@ -1,32 +1,29 @@
 <template>
     <Menu></Menu>
-    <div class="personal-info">
-      <h1 class="title">Personal Information</h1>
-      <p class="info">
-        <span class="label">Name:</span> John Doe<br>
-        <span class="label">Username:</span> johndoe123<br>
-        <span class="label">Address:</span> 123 Main St, Bikini Bottom<br>
-        <span class="label">Credit Card Number:</span> **** **** **** 1234
-      </p>
+    <div class="home">
+      <h1 class="title">Para realizar el pago por via electronica escanea el codigo</h1>
+      <img src="../assets/images/QR.jpg">
       <!-- Add more personal details here -->
     </div>
+    <div class="imagediv"></div>  
   </template>
   
   <style scoped>
   .personal-info {
     text-align: center;
     padding: 2rem;
-    background-image: url("../assets/images/calamardo.jpg");
+   
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 600px;
+    
     background-color: rgba(255, 228, 196, 0.2);
+   
   }
   
   .title {
     font-size: 4.5rem;
-    color: var(--primary-200);
+    color: black;
     margin-bottom: 1rem;
     background-color: rgba(255, 228, 196, 0.2);
   }
@@ -44,5 +41,18 @@
     color: var(--accent-200);
     color: green;
   }
+  h1{
+    color: black;
+    background-color: black;
+  }
+  .imagediv {
+  position: fixed; /* Posición fija */
+  bottom: 0; /* Colócalo en la parte inferior */
+  right: 0; /* Colócalo en la parte derecha */
+  width: 220px; /* Ancho de la imagen */
+  height: 100px; /* Altura de la imagen */
+  background-image: url("../assets/images/alMedioLogo.jpg");
+  background-size: cover;
+  margin-bottom: 10px;}
   </style>
   

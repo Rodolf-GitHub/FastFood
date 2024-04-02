@@ -10,9 +10,9 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  direction: {
+  role: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: false
   }
 });
 

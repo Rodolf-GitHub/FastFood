@@ -56,16 +56,23 @@ class ProductController {
   async deleteProduct(req, res) {
     const { id } = req.params;
     try {
-      const deletedProduct = await Product.findByIdAndDelete(id);
-      if (!deletedProduct) {
+      // Eliminar el producto con el ID especificado
+      const numDeletedRows = await Product.destroy({
+        where: { id: id }
+      });
+  
+      if (numDeletedRows === 0) {
         return res.status(404).json({ message: 'Producto no encontrado' });
       }
+  
       res.status(200).json({ message: 'Producto eliminado exitosamente' });
     } catch (error) {
       console.error('Error al eliminar producto:', error);
       res.status(500).json({ message: 'Error al eliminar producto' });
     }
   }
+  
+  
 }
 
 module.exports = ProductController;

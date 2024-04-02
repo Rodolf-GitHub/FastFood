@@ -1,8 +1,7 @@
 <template>
   <div class="home">
     <Menu></Menu>
-    <h1 class="title">Bienvenido al restaurante Al Medio</h1>
-    
+    <h1 class="title">Pagina de administracion del restaurant</h1>
     <p class="description">
       Descubre una experiencia gastronómica única en el corazón de la ciudad.
       Deléitate con nuestra exquisita cocina tradicional cubana, preparada con
@@ -10,47 +9,43 @@
       mezcla perfecta entre tradición y modernidad en cada bocado! ¡Te esperamos
       para vivir momentos inolvidables en nuestro restaurante!
     </p>
-  
     <!-- Add more elements here, such as images or buttons -->
   </div>
-  <div class="imagediv"></div>  
 </template>
 
 <style scoped>
 .home {
   text-align: center;
   padding: 2rem;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url("../assets/images/alMedioLogo.png");
+  background-size: cover; /* Ajusta la imagen para que cubra toda la pantalla */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen vertical y horizontalmente */
   height: 620px;
-  background-color: var(--bg-300);
 }
 
 .title {
   text-align: left;
   font-size: 4.5rem;
-  color: var(--primary-200);
+  color: var(--primary-200); /* Use your custom accent color */
   margin-bottom: 2rem;
   background-color: rgba(10, 10, 10, 0.5);
 }
 
 .description {
   font-size: 2.1rem;
-  color: var(--accent-100);
+  color: var(--accent-100); /* Use your custom text color */
   margin-bottom: 2rem;
   color: rgb(242, 242, 243);
   background-color: rgba(10, 10, 10, 0.5);
 }
 
-.imagediv {
-  position: fixed; /* Posición fija */
-  bottom: 0; /* Colócalo en la parte inferior */
-  right: 0; /* Colócalo en la parte derecha */
-  width: 220px; /* Ancho de la imagen */
-  height: 100px; /* Altura de la imagen */
-  background-image: url("../assets/images/alMedioLogo.jpg");
+body {
+  background-image: url("../assets/images/krustykrab.jpg");
   background-size: cover;
-  margin-bottom: 10px;
+}
+p{
+  margin-right: 200px;
+  margin-bottom: 300px;
 }
 </style>

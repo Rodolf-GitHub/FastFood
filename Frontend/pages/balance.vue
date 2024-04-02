@@ -1,24 +1,26 @@
 <template>
     <Menu></Menu>
     <div class="account-balance">
-      <h1 class="title">Account Balance</h1>
+      <h1 class="title">Horarios de hoy</h1>
       <p class="balance-info">
-        Your current account balance is: 
-        <span class="balance-amount">$5,000.00</span>
+        estamos abiertos de :
+        <span class="balance-amount">8am a 1am</span>
       </p>
       <!-- Add more account-related elements here -->
     </div>
+    <div class="imagediv"></div>  
   </template>
   
   <style scoped>
   .account-balance {
     text-align: center;
     padding: 2rem;
-    background-image: url("../assets/images/perla.jpg");
+   background-color: var(--bg-300);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 600px;
+    height: 100vh;
+   
   }
   
   .title {
@@ -44,5 +46,15 @@
     color: var(--accent-200);
     color: green;
   }
+  .imagediv {
+  position: fixed; /* Posición fija */
+  bottom: 0; /* Colócalo en la parte inferior */
+  right: 0; /* Colócalo en la parte derecha */
+  width: 220px; /* Ancho de la imagen */
+  height: 100px; /* Altura de la imagen */
+  background-image: url("../assets/images/alMedioLogo.jpg");
+  background-size: cover;
+  margin-bottom: 10px;
+}
   </style>
   

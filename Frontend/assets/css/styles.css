@@ -1,16 +1,17 @@
 /* custom-styles.css */
 
 :root {
-  --primary-100:#FFD700;
-  --primary-200:#011b07;
-  --primary-300:#917800;
-  --accent-100:#C0C0C0;
-  --accent-200:#626262;
-  --text-100:#333333;
-  --text-200:#5c5c5c;
-  --bg-100:#F7F7F7;
-  --bg-200:#ededed;
-  --bg-300:#8bf1ca;
+  --primary-100:#FF6600;
+  --primary-200:#ff983f;
+  --primary-300:#ffffa1;
+  --accent-100:#F5F5F5;
+  --accent-200:#929292;
+  --text-100:#FFFFFF;
+  --text-200:#e0e0e0;
+  --bg-100:#1D1F21;
+  --bg-200:#2c2e30;
+  --bg-300:#102033;
+    
     
       
   }
@@ -54,5 +55,25 @@ title{
 h1{
     color: var(--text-100);
 }
+.home{
+  text-align: center;
+  padding: 2rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  background-color: var(--bg-300);
+}
+.imagediv {
+  position: fixed; /* Posición fija */
+  bottom: 0; /* Colócalo en la parte inferior */
+  right: 0; /* Colócalo en la parte derecha */
+  width: 220px; /* Ancho de la imagen */
+  height: 100px; /* Altura de la imagen */
+  background-image: url("../assets/images/alMedioLogo.jpg");
+  background-size: cover;
+  margin-bottom: 10px;
+}
+
 
   

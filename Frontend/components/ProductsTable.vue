@@ -3,11 +3,11 @@
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Cost $</th>
-          <th>Image</th>
-          <th>Description</th>
-          <th>Actions</th>
+          <th>Nombre</th>
+          <th>$Precio</th>
+          <th>Imagen</th>
+          <th>Descripcion</th>
+          
         </tr>
       </thead>
       <tbody>
@@ -18,15 +18,7 @@
             <img :src="getImageUrl(product.image)" alt="Product Image" />
           </td>
           <td>{{ product.description }}</td>
-          <td>
-            <button class="add" @click="addToCart(product)">
-              <img src="../assets/images/add.jpg"  />
-            </button>
-            <button class="remove" @click="removeFromCart(product)">
-              <img src="../assets/images/remove.jpg"  />
-              
-            </button>
-          </td>
+          
         </tr>
       </tbody>
     </table>
@@ -83,7 +75,7 @@ th,
 td {
   padding: 0.5rem;
   border: 1px solid var(--bg-200);
-  background-color: rgba(255, 228, 196, 0.5);
+  background-color: rgba(255, 228, 196, 0.3);
 }
 
 th {

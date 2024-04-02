@@ -6,9 +6,11 @@ const port = process.env.PORT;
 const cors = require("cors");
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
+const balanceRoutes = require('./routes/balanceRoutes');
 const  sequelize  =require('./database/database');
 const logger = require('./loggers/loggers');
 const errorHandler = require('./middleWares/errorHandler');
+app.use(express.json());
 app.use(
   cors({
     origin: "*",
@@ -16,12 +18,14 @@ app.use(
   })
 );
 app.use('/', userRoutes);
-app.use(express.json());
+
 app.use('/', productRoutes);
+app.use('/', balanceRoutes);
 
 
-// Usa el middleware de manejo de errores al final de la cadena de middleware
+
 app.use(errorHandler);
+
 
 
 async function main() {

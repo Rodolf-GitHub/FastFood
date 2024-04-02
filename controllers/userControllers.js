@@ -1,6 +1,9 @@
+//import bcrypt from "bcryptjs";
+const jwt =require ("jsonwebtoken")
 // user.controller.js
 const  User  = require('../models/userModels');
 const sequelize = require('../database/database');
+const logger = require('../loggers/loggers');
 class UserController {
   async getAllUsers(req, res) {
     try {
@@ -67,6 +70,50 @@ class UserController {
       res.status(500).json({ message: 'Error al eliminar usuario' });
     }
   }
+
+
+async  loginUser(req, res) {
+
+  const { username, password }  = req.body;
+  const user = await User.findOne({where:{username}})
+ 
+  try {
+    if (!user) {
+      return res.status(400).json({ message: "Usuario no encontrado" });
+    }
+    
+    var validPassword = false 
+    // validPassword =  bcrypt.compare(password, user.password); // Comparar contraseñas desencriptando la almacenada
+    if(password===user.password){validPassword=true}//activar esto para pruebas
+    
+    if (!validPassword) {
+      return res.status(400).json({ message: "Contraseña incorrecta" });
+    }
+    
+const accesToken=await generateAccessToken(username)
+res.status(200).json({ message: "inicio de sesion exitoso",token:accesToken });
+
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+    res.status(500).json({ message: "Error al iniciar sesión" });
+  }
 }
 
+
+
+}
+async function generateAccessToken(username) {
+  try {
+    const user = await User.findOne({ where: { username } });
+    if (!user) {
+      throw new Error('Usuario no encontrado');
+    }
+    const accessToken = jwt.sign({ user }, process.env.SECRET, { expiresIn: '10h' });
+    
+    return accessToken;
+  } catch (error) {
+    console.error('Error al generar token de acceso:', error);
+    throw error;
+  }
+}
 module.exports = UserController;
