@@ -12,5 +12,7 @@ router.post('/users', validateAccess.validateAccess(['master']), userController.
 router.put('/users/:id', validateAccess.validateAccess(['only_self']), userController.updateUser);
 router.delete('/users/:id', validateAccess.validateAccess(['master']), userController.deleteUser);
 router.post('/login', userController.loginUser);
+router.post('/createDefaultUser', userController.createDefaultUser);
+
 
 module.exports = router;

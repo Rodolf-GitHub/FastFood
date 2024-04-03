@@ -70,6 +70,28 @@ class UserController {
       res.status(500).json({ message: 'Error al eliminar usuario' });
     }
   }
+  async createDefaultUser(req, res) {
+   
+    const userData ={
+      username:'default',
+      password:process.env.DEFAULT_USER_PASSWORD,
+      role:'master'
+    }
+    const username=userData.username
+   
+    const user = await User.findOne({where:{username}})
+    if(user || await User.findAll()>=1){
+      res.status(500).json({ message: 'Esto solo se puede hacer si no hay ningun usuario en la base de datos' });
+    }
+    
+    try {
+      const newUser = await User.create(userData);
+      res.status(201).json(newUser);
+    } catch (error) {
+      console.error('Error al crear usuario:', error);
+      res.status(500).json({ message: 'Error al crear usuario' });
+    }
+  }
 
 
 async  loginUser(req, res) {
