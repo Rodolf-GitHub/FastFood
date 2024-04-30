@@ -12,12 +12,12 @@ class ValidateAccess {
              return next()
             }
             else{
-              return res.status(403).json({ message: "Acceso denied. Insuficient permissions." });
+              return res.status(403).json({ message: "Acces denied. Insuficient permissions." });
             }
             
           } catch (error) {
             logger.error('Error in token verification')
-            return res.status(403).json({ message: "Acceso denied. invalid or expired Token." });
+            return res.status(403).json({ message: "Acces denied. invalid or expired Token." });
           }
         };
       }

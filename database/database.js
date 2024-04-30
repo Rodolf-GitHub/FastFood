@@ -14,7 +14,7 @@ async function testConnection() {
   try {
     sequelize.sync({ alter: true })
     await sequelize.authenticate();
-    logger.info('Conexión exitosa');
+     logger.info('Conexión exitosa');
   } catch (error) {
     logger.error('Error al conectar a la base de datos:', error);
   }

@@ -1,0 +1,92 @@
+swagger: '2.0'
+tags:
+  - name: Producto
+    description: API endpoints para operaciones relacionadas con Productos.
+paths:
+  /api/producto:
+    get:
+      summary: Obtener todos los Productos
+      tags: 
+        - Producto
+      description: Obtiene una lista de todos los Productos.
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Crea un nuevo Producto.
+      tags: 
+        - Producto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Producto'
+      responses:
+        '201':
+          description: Producto creado exitosamente.
+        '500':
+          description: Error interno del servidor.
+  /api/producto/{id}:
+    get:
+      summary: Obtiene un Producto por su ID.
+      tags: 
+        - Producto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+          description: ID del Producto a buscar.
+      responses:
+        '200':
+          description: Producto obtenido exitosamente.
+        '404':
+          description: Producto no encontrado.
+        '500':
+          description: Error interno del servidor.
+    put:
+      summary: Actualiza un Producto existente por su ID.
+      tags: 
+        - Producto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+          description: ID del Producto a actualizar.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Producto'
+      responses:
+        '200':
+          description: Producto actualizado exitosamente.
+        '404':
+          description: Producto no encontrado.
+        '500':
+          description: Error interno del servidor.
+    delete:
+      summary: Elimina un Producto por su ID.
+      tags: 
+        - Producto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+          description: ID del Producto a eliminar.
+      responses:
+        '200':
+          description: Producto eliminado exitosamente.
+        '404':
+          description: Producto no encontrado.
+        '500':
+          description: Error interno del servidor.

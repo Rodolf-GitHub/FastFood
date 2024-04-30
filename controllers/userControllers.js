@@ -37,7 +37,7 @@ class UserController {
       const newUser = await User.create(userData);
       res.status(201).json(newUser);
     } catch (error) {
-      console.error('Error al crear usuario:', error);
+      logger.error('Error al crear usuario:', error);
       res.status(500).json({ message: 'Error al crear usuario' });
     }
   }
@@ -71,29 +71,27 @@ class UserController {
     }
   }
   async createDefaultUser(req, res) {
-   
-    const userData ={
-      username:'default',
-      password:process.env.DEFAULT_USER_PASSWORD,
-      role:'master'
-    }
-    const username=userData.username
-   
-    const user = await User.findOne({where:{username}})
-    if(user || await User.findAll()>=1){
-      res.status(500).json({ message: 'Esto solo se puede hacer si no hay ningun usuario en la base de datos' });
-    }
-    
     try {
+      const { username, password } = req.body; // Obtener username y password del body
+      const userData = {
+        username: username || 'default', // Si no se proporciona un username en el body, usar 'default'
+        password: password || process.env.DEFAULT_USER_PASSWORD, // Si no se proporciona un password en el body, usar el valor de DEFAULT_USER_PASSWORD
+        role: 'master'
+      };
+      
+      const existingUsersCount = await User.count();
+      if (existingUsersCount > 0) {
+        return res.status(500).json({ message: 'Esto solo se puede hacer si no hay ningún usuario en la base de datos' });
+      }
+  
       const newUser = await User.create(userData);
-      res.status(201).json(newUser);
+      return res.status(201).json(newUser);
     } catch (error) {
       console.error('Error al crear usuario:', error);
-      res.status(500).json({ message: 'Error al crear usuario' });
+      return res.status(500).json({ message: 'Error al crear usuario' });
     }
   }
-
-
+  
 async  loginUser(req, res) {
 
   const { username, password }  = req.body;

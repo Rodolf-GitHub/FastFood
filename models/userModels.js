@@ -4,7 +4,8 @@ const sequelize = require('../database/database');
 const User = sequelize.define('User', {
   username: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    unique: true // Agregar la restricción de unicidad
   },
   password: {
     type: DataTypes.STRING,

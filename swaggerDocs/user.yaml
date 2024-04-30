@@ -1,0 +1,150 @@
+swagger: '2.0'
+tags:
+  - name: Usuario
+    description: API endpoints para operaciones relacionadas con Usuarios.
+paths:
+  /api/usuario:
+    get:
+      summary: Obtener todos los Usuarios
+      tags: 
+        - Usuario
+      description: Obtiene una lista de todos los Usuarios.
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Crea un nuevo Usuario.
+      tags: 
+        - Usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+      responses:
+        '201':
+          description: Usuario creado exitosamente.
+        '500':
+          description: Error interno del servidor.
+  /api/usuario/{id}:
+    get:
+      summary: Obtiene un Usuario por su ID.
+      tags: 
+        - Usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+          description: ID del Usuario a buscar.
+      responses:
+        '200':
+          description: Usuario obtenido exitosamente.
+        '404':
+          description: Usuario no encontrado.
+        '500':
+          description: Error interno del servidor.
+    put:
+      summary: Actualiza un Usuario existente por su ID.
+      tags: 
+        - Usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+          description: ID del Usuario a actualizar.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+      responses:
+        '200':
+          description: Usuario actualizado exitosamente.
+        '404':
+          description: Usuario no encontrado.
+        '500':
+          description: Error interno del servidor.
+    delete:
+      summary: Elimina un Usuario por su ID.
+      tags: 
+        - Usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int64
+          description: ID del Usuario a eliminar.
+      responses:
+        '200':
+          description: Usuario eliminado exitosamente.
+        '404':
+          description: Usuario no encontrado.
+        '500':
+          description: Error interno del servidor.
+  /api/usuario/login:
+    post:
+      summary: Iniciar sesión de usuario.
+      tags:
+        - Usuario
+      parameters:
+        - name: body
+          in: body
+          description: Credenciales de inicio de sesión
+          required: true
+          schema:
+            $ref: '#/definitions/LoginInput'
+      responses:
+        '200':
+          description: Inicio de sesión exitoso.
+        '400':
+          description: Credenciales inválidas.
+        '500':
+          description: Error interno del servidor.
+  /api/usuario/default:
+    post:
+      summary: Crear un usuario predeterminado.
+      tags:
+        - Usuario
+      parameters:
+        - name: body
+          in: body
+          description: Credenciales de usuario por defecto
+          required: true
+          schema:
+            $ref: '#/definitions/LoginInput'
+      responses:
+        '201':
+          description: Usuario predeterminado creado exitosamente.
+        '500':
+          description: Error interno del servidor.
+definitions:
+  UsuarioInput:
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+      role:
+        type: string
+  LoginInput:
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+
+
+
+
+

@@ -8,7 +8,7 @@ const userController = new UserController();
 
 router.get('/users', validateAccess.validateAccess(['master','admin']), userController.getAllUsers);
 router.get('/users/:id', validateAccess.validateAccess(['master', 'admin']), userController.getUserById);
-router.post('/users', validateAccess.validateAccess(['master']), userController.createUser);
+router.post('/users', validateAccess.validateAccess(['master','admin']), userController.createUser);
 router.put('/users/:id', validateAccess.validateAccess(['only_self']), userController.updateUser);
 router.delete('/users/:id', validateAccess.validateAccess(['master']), userController.deleteUser);
 router.post('/login', userController.loginUser);
